@@ -10,11 +10,6 @@ import cv2
 
 @st.cache_resource
 def load_model():
-    """Fetch and cache the fitted model.
-
-    Returns:
-        RandomForestClassifier: Trained Scikit-learn model.
-    """
     with open('fashion_model.pkl', 'rb') as f:
         model = pickle.load(f)
     return model
