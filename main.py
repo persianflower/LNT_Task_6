@@ -3,13 +3,16 @@ import pickle
 import numpy as np
 import pandas as pd
 from tensorflow import keras, float16
+import requests
 from PIL import Image
 import streamlit as st
 import cv2
 
+
 def main():
-    with open('fashion_model.pkl', 'rb') as f:
+    with open('https://github.com/persianflower/LNT_Task_6/blob/main/fashion_model.pkl', 'rb') as f:
         model = pickle.load(f)
+
     st.title('Cloth Prediction')
     st.write('Predict the cloth shown')
 
