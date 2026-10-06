@@ -7,12 +7,11 @@ import requests
 from PIL import Image
 import streamlit as st
 import cv2
+import joblib
 
 @st.cache_resource
 def load_model():
-    with open('fashion_model.pkl', 'rb') as f:
-        model = pickle.load(f)
-    return model
+    return joblib.load("model.gz")
 
 def main():
     model=load_model()
