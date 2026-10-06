@@ -8,11 +8,19 @@ from PIL import Image
 import streamlit as st
 import cv2
 
+@st.cache_resource
+def load_model():
+    """Fetch and cache the fitted model.
+
+    Returns:
+        RandomForestClassifier: Trained Scikit-learn model.
+    """
+    with open('fashion_model.pkl', 'rb') as f:
+        model = pickle.load(f)
+    return model
 
 def main():
-    with open('https://github.com/persianflower/LNT_Task_6/blob/main/fashion_model.pkl', 'rb') as f:
-        model = pickle.load(f)
-
+    model=load_model()
     st.title('Cloth Prediction')
     st.write('Predict the cloth shown')
 
